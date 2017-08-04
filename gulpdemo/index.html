@@ -9,35 +9,73 @@
     </head>
     <body>
         <div class="container">
+            <div class="logo-container">
+                <img src="images/bob-ross.jpg" class="img-responsive img-circle" />
+            </div>
             <div class="row">
                 <div class="col-md-12">
-                    <div class="page-header">
-                        <h1>Gulp Training Site</h2>
+                    <h1>Gulp Training Site</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <h4>Bob Ross Quotes</h4>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="quote-container">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            <p>Let's get crazy. Clouds are free they come and go as they please. All you have to learn here is how to have fun. Trees cover up a multitude of sins. Don't forget to tell these special people in your life just how special they are to you.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>
+                                            <p>All kinds of happy little splashes. In your world you have total and absolute power. Here's something that's fun. We have a fantastic little sky!</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>
+                                            <p>Be careful. You can always add more - but you can't take it away. Making all those little fluffies that live in the clouds. You can create the world you want to see and be a part of. You have that power. We'll put all the little clouds in and let them dance around and have fun. Nature is so fantastic, enjoy it. Let it make you happy. We'll throw some old gray clouds in here just sneaking around and having fun.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>
+                                            <p>It's almost like something out of a fairytale book. I spend a lot of time walking around in the woods and talking to trees, and squirrels, and little rabbits and stuff. How do you make a round circle with a square knife? That's your challenge for the day. All you need to paint is a few tools, a little instruction, and a vision in your mind. That's a crooked tree. We'll send him to Washington. This painting comes right out of your heart.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>
+                                            <p>Maybe there's a happy little Evergreen that lives here. It's a good way of getting rid of all your anxieties and hostilities. At home you have unlimited time.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>
+                                            <p>Let's put a touch more of the magic here. I was blessed with a very steady hand; and it comes in very handy when you're doing these little delicate things. Working it up and down, back and forth.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>
+                                            <p>This is the time to get out all your flustrations, much better than kicking the dog around the house or taking it out on your spouse. Trees live in your fan brush, but you have to scare them out. We must be quiet, soft and gentle. I guess I'm a little weird. I like to talk to trees and animals. That's okay though; I have more fun than most people. A tree cannot be straight if it has a crooked trunk.</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <div class="panel-title">
-                                    <h4>Bob Ross Quotes</h4>
-                                </div>
-                            </div>
-                            <div class="panel-body">
-                                <div class="quote-container">
-                                    <p>Let's get crazy. Clouds are free they come and go as they please. All you have to learn here is how to have fun. Trees cover up a multitude of sins. Don't forget to tell these special people in your life just how special they are to you.</p>
-                                    <p>All kinds of happy little splashes. In your world you have total and absolute power. Here's something that's fun. We have a fantastic little sky!</p>
-                                    <p>Be careful. You can always add more - but you can't take it away. Making all those little fluffies that live in the clouds. You can create the world you want to see and be a part of. You have that power. We'll put all the little clouds in and let them dance around and have fun. Nature is so fantastic, enjoy it. Let it make you happy. We'll throw some old gray clouds in here just sneaking around and having fun.</p>
-                                    <p>It's almost like something out of a fairytale book. I spend a lot of time walking around in the woods and talking to trees, and squirrels, and little rabbits and stuff. How do you make a round circle with a square knife? That's your challenge for the day. All you need to paint is a few tools, a little instruction, and a vision in your mind. That's a crooked tree. We'll send him to Washington. This painting comes right out of your heart.</p>
-                                    <p>Maybe there's a happy little Evergreen that lives here. It's a good way of getting rid of all your anxieties and hostilities. At home you have unlimited time.</p>
-                                    <p>Let's put a touch more of the magic here. I was blessed with a very steady hand; and it comes in very handy when you're doing these little delicate things. Working it up and down, back and forth.</p>
-                                    <p>This is the time to get out all your flustrations, much better than kicking the dog around the house or taking it out on your spouse. Trees live in your fan brush, but you have to scare them out. We must be quiet, soft and gentle. I guess I'm a little weird. I like to talk to trees and animals. That's okay though; I have more fun than most people. A tree cannot be straight if it has a crooked trunk.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">
@@ -51,7 +89,7 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="new-quote">Quote:</label>
-                                            <textarea name="quote" class="form-control"></textarea>
+                                            <textarea name="quote" required="true" class="form-control"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <button class="btn btn-default btn-primary">Save</button>
