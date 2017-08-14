@@ -5,10 +5,11 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var cleanCss = require('gulp-clean-css');
 var connect = require('gulp-connect');
+var runSequence = require('run-sequence');
 
 // cleanup anything that is inside the build directory
 gulp.task('clear-build', function(){
-    del('gulpdemo/build/*');
+    return del('gulpdemo/build/*');
 });
 
 // copy files to build directory
@@ -31,7 +32,9 @@ gulp.task('minify', function(){
 gulp.task('js', function(){
     gulp.src('gulpdemo/js/*.js')
         .pipe(gulp.dest("gulpdemo/build/js/"));
+});
 
+gulp.task('uglify', function(){
     gulp.src('gulpdemo/js/bob-ross/*.js')
         .pipe(concat('main.js'))
         .pipe(uglify())
@@ -57,4 +60,12 @@ gulp.task('connect', function(){
 });
 
 // run all of our tasks.
-gulp.task('default', ['clear-build', 'html', 'css', 'minify', 'js', 'fonts', 'images', 'connect']);
+gulp.task('default', function(callback) {
+    runSequence(
+        ['clear-build'],
+        ['html', 'css', 'js', 'fonts', 'images'],
+        ['minify', 'uglify'],
+        ['connect'],
+        callback
+    );
+});
