@@ -51,7 +51,8 @@ gulp.task('images', function(){
 gulp.task('connect', function(){
     connect.server({
         root: 'gulpdemo/build/',
-        port: 8005
+        port: 8005,
+        livereload: true
     });
 });
 
