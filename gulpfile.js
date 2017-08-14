@@ -1,7 +1,6 @@
 // load gulp and gulp plugins
 var gulp = require('gulp');
 var del = require('del');
-var connect = require('gulp-connect');
 
 // cleanup anything that is inside the build directory
 gulp.task('clear-build', function(){
@@ -34,12 +33,5 @@ gulp.task('images', function(){
         .pipe(gulp.dest("gulpdemo/build/images/"));
 });
 
-gulp.task('connect', function(){
-    connect.server({
-        root: 'gulpdemo/build/',
-        port: 8005
-    });
-});
-
 // run all of our tasks.
-gulp.task('default', ['clear-build', 'html', 'css', 'js', 'fonts', 'images', 'connect']);
+gulp.task('default', ['clear-build', 'html', 'css', 'js', 'fonts', 'images']);
