@@ -16,3 +16,12 @@ var bob_ross_quotes = [
     "Sometimes you learn more from your mistakes than you do from your masterpieces. Let's do that again. I like to beat the brush. All you need to paint is a few tools, a little instruction, and a vision in your mind.",
     "Let's go up in here, and start having some fun Put your feelings into it, your heart, it's your world. If we're gonna walk though the woods, we need a little path. Use what happens naturally, don't fight it."
 ]
+
+// pick 5 random quotes from the list of quotes to display on the page.
+function generateQuotes(){
+    var quotes_sample = [];
+    for (x=0; x<=4; x++) {
+        quotes_sample.push(bob_ross_quotes.splice(Math.ceil(Math.random(bob_ross_quotes.length) * bob_ross_quotes.length)-1, 1));
+    }
+    return quotes_sample;
+}
