@@ -42,4 +42,4 @@ gulp.task('connect', function(){
 });
 
 // run all of our tasks.
-gulp.task('default', ['clear-build', 'html', 'css', 'js', 'fonts', 'connect']);
+gulp.task('default', ['clear-build', 'html', 'css', 'js', 'fonts', 'images', 'connect']);
