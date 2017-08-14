@@ -1,7 +1,7 @@
 // load gulp and gulp plugins
 var gulp = require('gulp');
 var del = require('del');
-var webserver = require('gulp-webserver');
+var connect = require('gulp-connect');
 
 // cleanup anything that is inside the build directory
 gulp.task('clear-build', function(){
@@ -20,7 +20,7 @@ gulp.task('css', function(){
 });
 
 gulp.task('js', function(){
-    gulp.src('gulpdemo/js/*.js')
+    gulp.src('gulpdemo/js/**/*.js')
         .pipe(gulp.dest("gulpdemo/build/js/"));
 });
 
@@ -34,17 +34,12 @@ gulp.task('images', function(){
         .pipe(gulp.dest("gulpdemo/build/images/"));
 });
 
-gulp.task('webserver', function(){
-    gulp.src('gulpdemo')
-        .pipe(webserver({
-            livereload: true,
-            directoryListing: true,
-            open: true,
-            fallback: 'index.html',
-            port: 8050,
-            path: 'gulpdemo/html/'
-        }));
+gulp.task('connect', function(){
+    connect.server({
+        root: 'gulpdemo/build/',
+        port: 8005
+    });
 });
 
 // run all of our tasks.
-gulp.task('default', ['clear-build', 'html', 'css', 'js', 'fonts', 'webserver']);
+gulp.task('default', ['clear-build', 'html', 'css', 'js', 'fonts', 'connect']);
