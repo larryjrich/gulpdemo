@@ -1,6 +1,14 @@
+// load gulp and gulp plugins
 var gulp = require('gulp');
+var del = require('del');
 var webserver = require('gulp-webserver');
 
+// cleanup anything that is inside the build directory
+gulp.task('clear-build', function(){
+    del('gulpdemo/build/*');
+});
+
+// copy files to build directory
 gulp.task('html', function(){
     gulp.src('gulpdemo/*.html')
         .pipe(gulp.dest("gulpdemo/build/"));
@@ -38,4 +46,5 @@ gulp.task('webserver', function(){
         }));
 });
 
-gulp.task('default', ['html', 'css', 'js', 'fonts', 'webserver']);
+// run all of our tasks.
+gulp.task('default', ['clear-build', 'html', 'css', 'js', 'fonts', 'webserver']);
