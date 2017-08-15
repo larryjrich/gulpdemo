@@ -55,7 +55,6 @@ gulp.task('connect', function(){
     return connect.server({
         root: 'gulpdemo/build/',
         port: 8005,
-        livereload: true
     });
 });
 
