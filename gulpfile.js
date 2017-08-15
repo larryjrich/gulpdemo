@@ -51,11 +51,49 @@ gulp.task('images', function(){
         .pipe(gulp.dest("gulpdemo/build/images/"));
 });
 
+// watch tasks
+gulp.task('watch-html', function(callback){
+     return runSequence(['html'], callback);
+});
+
+gulp.task('watch-css', function(callback){
+    return runSequence(['css', 'minify'], callback);
+});
+
+gulp.task('watch-js', function(callback){
+    return runSequence(['js', 'uglify'], callback);
+});
+
+gulp.task('watch-fonts', function(callback){
+    return runSequence(['fonts'], callback);
+});
+
+gulp.task('watch-images', function(callback){
+    return runSequence(['images'], callback);
+});
+
+gulp.task('watch', function(){
+    gulp.watch('gulpdemo/*.html', ['watch-html']);
+    gulp.watch('gulpdemo/css/**/*', ['watch-css']);
+    gulp.watch('gulpdemo/js/**/*', ['watch-js']);
+    gulp.watch('gulpdemo/fonts/*', ['watch-fonts']);
+    gulp.watch('gulpdemo/images/*', ['watch-images']);
+
+    // reload
+    gulp.watch('gulpdemo/build/**/*', ['livereload']);
+});
+
 gulp.task('connect', function(){
     return connect.server({
         root: 'gulpdemo/build/',
         port: 8005,
+        livereload: true
     });
+});
+
+gulp.task('livereload', function() {
+    return gulp.src('gulpdemo/build')
+        .pipe(connect.reload());
 });
 
 // run all of our tasks.
@@ -64,6 +102,7 @@ gulp.task('default', function(callback) {
         ['clear-build'],
         ['html', 'css', 'js', 'fonts', 'images'],
         ['minify', 'uglify'],
+        ['watch'],
         ['connect'],
         callback
     );
