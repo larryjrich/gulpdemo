@@ -14,45 +14,45 @@ gulp.task('clear-build', function(){
 
 // copy files to build directory
 gulp.task('html', function(){
-    gulp.src('gulpdemo/*.html')
+    return gulp.src('gulpdemo/*.html')
         .pipe(gulp.dest("gulpdemo/build/"));
 });
 
 gulp.task('css', function(){
-    gulp.src(['!gulpdemo/css/styles.css', 'gulpdemo/css/*.css'])
+    return gulp.src(['!gulpdemo/css/styles.css', 'gulpdemo/css/*.css'])
         .pipe(gulp.dest("gulpdemo/build/css/"));
 });
 
 gulp.task('minify', function(){
-    gulp.src('gulpdemo/css/styles.css')
+    return gulp.src('gulpdemo/css/styles.css')
     .pipe(cleanCss())
     .pipe(gulp.dest('gulpdemo/build/css/'));
 });
 
 gulp.task('js', function(){
-    gulp.src('gulpdemo/js/*.js')
+    return gulp.src('gulpdemo/js/*.js')
         .pipe(gulp.dest("gulpdemo/build/js/"));
 });
 
 gulp.task('uglify', function(){
-    gulp.src('gulpdemo/js/bob-ross/*.js')
+    return gulp.src('gulpdemo/js/bob-ross/*.js')
         .pipe(concat('main.js'))
         .pipe(uglify())
         .pipe(gulp.dest('gulpdemo/build/js'));
 });
 
 gulp.task('fonts', function(){
-    gulp.src('gulpdemo/fonts/*')
+    return gulp.src('gulpdemo/fonts/*')
         .pipe(gulp.dest("gulpdemo/build/fonts/"));
 });
 
 gulp.task('images', function(){
-    gulp.src('gulpdemo/images/*')
+    return gulp.src('gulpdemo/images/*')
         .pipe(gulp.dest("gulpdemo/build/images/"));
 });
 
 gulp.task('connect', function(){
-    connect.server({
+    return connect.server({
         root: 'gulpdemo/build/',
         port: 8005,
         livereload: true
@@ -61,7 +61,7 @@ gulp.task('connect', function(){
 
 // run all of our tasks.
 gulp.task('default', function(callback) {
-    runSequence(
+    return runSequence(
         ['clear-build'],
         ['html', 'css', 'js', 'fonts', 'images'],
         ['minify', 'uglify'],
